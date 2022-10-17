@@ -1,0 +1,44 @@
+{
+  "initialDate": "2022-05-02T13:51:50.417-07:00",
+  "results": [
+    { "date": "2022-05-02T13:51:50.417-07:00", "dozens": [15, 22, 65, 76, 80] },
+    { "date": "2022-05-03T13:51:50.417-07:00", "dozens": [7, 23, 30, 52, 60] },
+    { "date": "2022-05-04T13:51:50.417-07:00", "dozens": [34, 38, 39, 58, 67] },
+    { "date": "2022-05-05T13:51:50.417-07:00", "dozens": [22, 51, 67, 69, 70] },
+    { "date": "2022-05-06T13:51:50.417-07:00", "dozens": [5, 57, 59, 66, 73] },
+    { "date": "2022-05-07T13:51:50.417-07:00", "dozens": [17, 56, 59, 75, 78] },
+    { "date": "2022-05-09T13:51:50.417-07:00", "dozens": [4, 22, 35, 40, 54] }
+  ],
+  "categories": [
+    ["Primeiro a realizar 10 pontos", 40000],
+    ["Indicador do Campeão com 10 pontos em primeira colocação", 3000],
+    ["Segundo a realizar 10 pontos", 4000],
+    ["Indicador do Campeão com 10 pontos em segunda colocação", 1000],
+    [
+      "Possuir 9 pontos no momento que alguém chegar a 10 pontos primeiro",
+      7000
+    ],
+    ["Realizar 5 acertos no mesmo dia", 6000],
+    [
+      "Possuir menos pontos no momento que alguém chegar a 10 pontos primeiro",
+      3000
+    ],
+    ["Primeiro a alcançar 6 pontos", 500],
+    ["Primeiro a alcançar 7 pontos", 500],
+    ["Primeiro a alcançar 8 pontos", 500],
+    ["Mais pontos no 1° sorteio", 1000],
+    ["4 pontos no 2° sorteio", 300],
+    ["4 pontos no 3° sorteio", 300],
+    ["4 pontos no 4° sorteio", 300],
+    ["4 pontos no 5° sorteio", 300],
+    ["4 pontos no 6° sorteio", 300],
+    ["4 pontos no 7° sorteio", 300],
+    ["4 pontos no 8° sorteio", 300],
+    ["4 pontos no 9° sorteio", 300],
+    ["4 pontos no 10° sorteio", 300],
+    [
+      "Sorteio extra no momento que alguém chegar a 10 pontos em segunda colocação",
+      2100
+    ]
+  ]
+}
