@@ -5,9 +5,8 @@ import { ExclamationIcon } from "../components/ExclamationIcon";
 import { IndicationIcon } from "../components/IndicationIcon";
 import { Ball, dozensDrawn, Page, ranking } from "./pdf";
 
-export const PDFPlacing = () => {
-  const dozensD = useMemo(() => dozensDrawn(data.results), []);
-
+const Ranking = () => {
+  const dozens = useMemo(() => dozensDrawn(data.results), []);
   const rankingData = useMemo(
     () =>
       ranking(
@@ -15,11 +14,43 @@ export const PDFPlacing = () => {
           name: string;
           dozens: number[];
         }[],
-        dozensD
+        dozens
       ),
     []
   );
 
+  return useMemo(() => {
+    return (
+      <>
+        {rankingData.map(({ name, draw }, index) => (
+          <div className="mx-[5mm] h-[10mm] flex flex-row text-xs">
+            <span className="my-auto inline-block w-[18mm] pl-3">
+              {index + 1}
+            </span>
+            <span className="my-auto inline-block w-[18mm] pl-3">
+              {draw.score}
+            </span>
+            <span className="my-auto inline-block w-[84mm] pl-3 whitespace-nowrap overflow-hidden">
+              {name}
+            </span>
+            <span className="my-auto w-[80mm] pl-3 flex gap-1">
+              {draw.dozens.map((dozen) => (
+                <Ball
+                  number={dozen.number}
+                  key={dozen.number}
+                  style="!w-2 !h-2 font-regular text-xs !p-3 bg-gray-200"
+                  checked={dozen.checked}
+                />
+              ))}
+            </span>
+          </div>
+        ))}
+      </>
+    );
+  }, []);
+};
+
+export const PDFPlacing = () => {
   return (
     <>
       <Page>
@@ -43,29 +74,7 @@ export const PDFPlacing = () => {
             <span className="my-auto inline-block w-[84mm] pl-3">Nome</span>
             <span className="my-auto inline-block w-[80mm] pl-3">Dezenas</span>
           </div>
-          {rankingData.map(({ name, draw }, index) => (
-            <div className="mx-[5mm] h-[10mm] flex flex-row text-xs">
-              <span className="my-auto inline-block w-[18mm] pl-3">
-                {index + 1}
-              </span>
-              <span className="my-auto inline-block w-[18mm] pl-3">
-                {draw.score}
-              </span>
-              <span className="my-auto inline-block w-[84mm] pl-3 whitespace-nowrap overflow-hidden">
-                {name}
-              </span>
-              <span className="my-auto w-[80mm] pl-3 flex gap-1">
-                {draw.dozens.map((dozen) => (
-                  <Ball
-                    number={dozen.number}
-                    key={dozen.number}
-                    style="!w-2 !h-2 font-regular text-xs !p-3 bg-gray-200"
-                    checked={dozen.checked}
-                  />
-                ))}
-              </span>
-            </div>
-          ))}
+          <Ranking />
         </main>
       </Page>
     </>
