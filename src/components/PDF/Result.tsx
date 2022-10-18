@@ -1,14 +1,35 @@
 import { Image, Text, View } from "@react-pdf/renderer";
+import { useMemo } from "react";
 import data from "../../../data.json";
+import participants from "../../../participants1.json";
 import cellIcon from "../../assets/cell.png";
 import mensIcon from "../../assets/mens.png";
 import { formatDate } from "../../utils/format";
-import { PDF, tw } from "../PDF";
+import { dozensDrawn, PDF, ranking, tw } from "../PDF";
 
 export const Result = () => {
-  const lastResult = data.results.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  )[0];
+  const lastResult = data.results.reduce((prev, current) =>
+    new Date(prev.date).getTime() > new Date(current.date).getTime()
+      ? prev
+      : current
+  );
+
+  const dozens = useMemo(() => dozensDrawn(data.results), []);
+  const rankingData = useMemo(
+    () =>
+      ranking({
+        participants: participants as {
+          name: string;
+          dozens: number[];
+        }[],
+        results: dozens,
+      }),
+    []
+  );
+
+  const rankingPerScore = new Array(11).fill(0);
+
+  rankingData.map((participant) => rankingPerScore[participant.draw.score]++);
 
   return (
     <>
@@ -30,7 +51,7 @@ export const Result = () => {
           />
         </View>
 
-        <View style={tw("flex flex-col items-center justify-center")}>
+        <View style={tw("flex flex-col items-center justify-center my-[6mm]")}>
           <View style={tw("flex flex-row mt-6 text-xs")}>
             <Text style={tw("")}>Último resultado - </Text>
             <Text style={tw("font-bold")}>{formatDate(lastResult.date)}</Text>
@@ -38,9 +59,11 @@ export const Result = () => {
           <View
             style={tw("bg-[#D6E3FF] px-8 py-4 rounded-full flex flex-row mt-5")}
           >
-            {lastResult.dozens.map((dozen) => (
-              <PDF.Ball checked number={dozen} key={dozen} style="mx-2" />
-            ))}
+            {lastResult.dozens
+              .sort((a, b) => a - b)
+              .map((dozen) => (
+                <PDF.Ball checked number={dozen} key={dozen} style="mx-2" />
+              ))}
           </View>
         </View>
 
@@ -73,7 +96,7 @@ export const Result = () => {
 
         <View
           style={tw(
-            "flex flex-row items-center justify-center px-[5mm] mb-6 mt-24"
+            "flex flex-row items-center justify-center px-[5mm] mb-6 mt-[30mm]"
           )}
         >
           <View style={tw("flex flex-col w-[30mm] h-[20mm] text-sm")}>
@@ -92,7 +115,9 @@ export const Result = () => {
               <Text style={tw("bg-[#d6e3ff] font-black py-3 text-sm")}>
                 {index}
               </Text>
-              <Text style={tw("bg-[#d6e3ff] py-3 text-xs")}>12000</Text>
+              <Text style={tw("bg-[#d6e3ff] py-3 text-xs")}>
+                {rankingPerScore[index]}
+              </Text>
             </View>
           ))}
         </View>

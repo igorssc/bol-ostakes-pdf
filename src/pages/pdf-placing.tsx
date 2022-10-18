@@ -23,7 +23,7 @@ const Ranking = () => {
     return (
       <>
         {rankingData.map(({ name, draw }, index) => (
-          <div className="mx-[5mm] h-[10mm] flex flex-row text-xs">
+          <div className="mx-[5mm] h-[10mm] flex flex-row text-xs" key={index}>
             <span className="my-auto inline-block w-[18mm] pl-3">
               {index + 1}
             </span>
