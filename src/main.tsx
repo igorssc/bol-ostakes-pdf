@@ -1,11 +1,12 @@
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { App } from "./App";
+import { ExamplePDF } from "./pages/pdf";
 import "./styles/global.css";
-import {ExamplePDF} from './pages/pdf'
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.render(
   <>
     <App />
     <ExamplePDF />
-  </>
+  </>,
+  document.getElementById("root") as HTMLElement
 );

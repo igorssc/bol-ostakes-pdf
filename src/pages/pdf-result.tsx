@@ -41,7 +41,7 @@ export const PDFResult = () => {
             <div className="flex flex-col gap-5 items-center justify-center mt-6">
               {Array.from({ length: 8 }, (_, indexRow) => (
                 <div className="flex gap-2" key={indexRow}>
-                  {Array.from({ length: 10 }, (_, indexColumn) => (
+                  {Array.from({ length: 11 }, (_, indexColumn) => (
                     <Ball
                       number={indexRow * 10 + 1 + indexColumn}
                       key={indexColumn}
