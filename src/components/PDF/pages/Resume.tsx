@@ -1,8 +1,8 @@
 import { Image, Text, View } from "@react-pdf/renderer";
-import data from "../../../data.json";
-import brightnessIcon from "../../assets/brilhante.png";
-import winners from "../../assets/winners.png";
-import { formatDate } from "../../utils/format";
+import data from "../../../../data.json";
+import brightnessIcon from "../../../assets/brilhante.png";
+import winners from "../../../assets/winners.png";
+import { formatDate } from "../../../utils/format";
 import { PDF, tw } from "../PDF";
 
 const MainCategories = ({ title, value }: { title: string; value: number }) => {
@@ -51,6 +51,7 @@ export const Resume = () => {
             Concurso 60 (Início: {formatDate(data.initialDate)})
           </Text>
         </View>
+
         <View
           style={tw(
             "px-[15mm] h-[60mm] bg-[#D6E3FF] flex flex-row items-center justify-around"
@@ -108,6 +109,7 @@ export const Resume = () => {
             )}
           </View>
         </View>
+
         <View style={tw("h-[167mm] flex text-sm items-center justify-center")}>
           {data.categories.map(([title, value]) => (
             <Category

@@ -1,21 +1,13 @@
 import { Image, Text, View } from "@react-pdf/renderer";
-import { useMemo } from "react";
-import data from "../../../data.json";
-import participants from "../../../participants1.json";
-import exclamationIcon from "../../assets/exclamation.png";
-import indicationIcon from "../../assets/indication.png";
-import { dozensDrawn, PDF, ranking, tw, type ParticipantProps } from "../PDF";
+import { useContext } from "react";
+import exclamationIcon from "../../../assets/exclamation.png";
+import indicationIcon from "../../../assets/indication.png";
+import { PDFContext } from "../../../contexts/PDFContexts";
+import { PDF, tw } from "../PDF";
+import { Ranking } from "../Ranking";
 
 export const Placing = () => {
-  const dozens = useMemo(() => dozensDrawn(data.results), []);
-  const rankingData = useMemo(
-    () =>
-      ranking({
-        participants: participants as ParticipantProps[],
-        results: dozens,
-      }),
-    []
-  );
+  const { rankingData } = useContext(PDFContext);
 
   return (
     <>
@@ -38,8 +30,8 @@ export const Placing = () => {
             />
           </View>
         </View>
-        <PDF.Ranking.Header />
-        <PDF.Ranking.Body data={rankingData} />
+        <Ranking.Header />
+        <Ranking.Body data={rankingData({ order: "numeric" })} />
       </PDF.Page>
     </>
   );
