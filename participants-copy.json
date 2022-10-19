@@ -4088,10 +4088,6 @@
     "dozens": [6, 11, 26, 39, 41, 51, 62, 68, 72, 74]
   },
   {
-    "name": "BOLÃO PROATIVA - JG 11",
-    "dozens": [21, 22, null, 24, 33, 37, 44, 53, 62, 75]
-  },
-  {
     "name": "BOLÃO PROATIVA - JG 12",
     "dozens": [5, 26, 27, 38, 39, 40, 46, 58, 60, 77]
   },
@@ -8806,10 +8802,6 @@
   {
     "name": "JEIDSON SANTOS - DIAMANTINA MG ",
     "dozens": [5, 19, 21, 30, 60, 66, 69, 72, 74, 78]
-  },
-  {
-    "name": "JESSE RIBEIRO MARTINS - JG 01",
-    "dozens": [5, 12, 17, 23, 32, 37, 44, 48, 59, null]
   },
   {
     "name": "JESSE RIBEIRO MARTINS - JG 02",
