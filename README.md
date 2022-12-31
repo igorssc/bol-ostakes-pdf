@@ -1,6 +1,6 @@
 ![Featured](https://user-images.githubusercontent.com/26682297/210122841-1d39c48e-4403-4df5-a450-27a6f0b534bd.jpg)
 
-application carried out in order to create an application that automatically generates results for a sweepstakes between friends that is based on the federal lottery.
+Application carried out in order to create an application that automatically generates results for a sweepstakes between friends that is based on the federal lottery.
 
 ## ✨ Technologies
 
