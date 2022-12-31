@@ -1,6 +1,6 @@
 import { createContext, ReactNode } from "react";
 import data from "../../data.json";
-import participants from "../../participants-copy.json";
+import participants from "../../participants.json";
 
 interface PDFProviderProps {
   children: ReactNode;
